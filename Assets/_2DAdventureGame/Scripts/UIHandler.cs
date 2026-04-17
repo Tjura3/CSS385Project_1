@@ -22,7 +22,7 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         UIDocument uiDocument = GetComponent<UIDocument>();
-        m_Healthbar = uiDocument.rootVisualElement.Q<VisualElement>("Healthbar");
+        m_Healthbar = uiDocument.rootVisualElement.Q<VisualElement>("HealthBar");
         SetHealthValue(1.0f);
 
         m_NonPlayerDialogue = uiDocument.rootVisualElement.Q<VisualElement>("NPCDialogue");
