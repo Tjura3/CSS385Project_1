@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5119421628991850041}
   - component: {fileID: 1960147862187673178}
   - component: {fileID: 6549626921272101518}
-  m_Layer: 0
+  - component: {fileID: 4865038611014836518}
+  m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,6 +199,43 @@ MonoBehaviour:
   speed: 3
   maxHealth: 5
   currentHealth: 0
+  timeInvincible: 2
+  projectilePrefab: {fileID: 3750871884213930834, guid: 3093fc973d96c6543ac19840fcee2d7d,
+    type: 3}
+  LaunchAction:
+    m_Name: Launch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e9cad5a5-b411-4516-9f7c-0c4a3d060752
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 104caa21-f7bd-4498-9f44-37bb365c77b0
+      m_Path: <Keyboard>/c
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Launch
+      m_Flags: 0
+    m_Flags: 0
+  TalkAction:
+    m_Name: Talk
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: fd32cf29-1b6b-4f6c-88dc-cbdafe32e956
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: d1f2c946-3e22-4717-be66-ea6673686463
+      m_Path: <Keyboard>/x
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Talk
+      m_Flags: 0
+    m_Flags: 0
 --- !u!50 &1960147862187673178
 Rigidbody2D:
   serializedVersion: 5
@@ -271,3 +309,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.90837014, y: 0.8104536}
   m_EdgeRadius: 0
+--- !u!95 &4865038611014836518
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211346823953538549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b77822e0485373d40b5beb92e9a5e728, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
