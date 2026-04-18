@@ -7,10 +7,16 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
     EnemyController[] enemies;
     public UIHandler uiHandler;
+    int enemiesFixed = 0;
 
     void Start()
     {
         enemies = FindObjectsByType<EnemyController>(FindObjectsSortMode.None);
+        foreach (var enemy in enemies)
+        {
+            enemy.OnFixed += HandleEnemyFixed;
+        }
+        uiHandler.SetCounter(0, enemies.Length);
     }
 
     void Update()
@@ -19,14 +25,14 @@ public class GameManager : MonoBehaviour
         if (player.health <= 0)
         {
             uiHandler.DisplayLoseScreen();
-            Invoke(nameof(ReloadScene), 3f);
+            Invoke(nameof(menuScene), 3f);
         }
 
         // Win condition
         if (AllEnemiesFixed())
         {
             uiHandler.DisplayWinScreen();
-            Invoke(nameof(ReloadScene), 3f);
+            Invoke(nameof(menuScene), 3f);
         }
     }
 
@@ -42,5 +48,14 @@ public class GameManager : MonoBehaviour
     void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    void menuScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+    void HandleEnemyFixed()
+    {
+        enemiesFixed++;
+        uiHandler.SetCounter(enemiesFixed, enemies.Length);
     }
 }

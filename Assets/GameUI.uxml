@@ -1,6 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="EndScreen" src="project://database/Assets/EndScreen.uxml?fileID=9197481963319205126&amp;guid=5a35ba303e41a034b90221bc2eb48b17&amp;type=3#EndScreen"/>
     <ui:Template name="NPCDialogue" src="project://database/Assets/NPCDialogue.uxml?fileID=9197481963319205126&amp;guid=cb785d993b171314d98dd92b958af07d&amp;type=3#NPCDialogue"/>
+    <ui:Template name="RobotCounter" src="project://database/Assets/RobotCounter.uxml?fileID=9197481963319205126&amp;guid=3fa218e68f322414eb1177d6e127c0db&amp;type=3#RobotCounter"/>
     <ui:VisualElement name="HealthBarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Art/Ruby/UI/UIHealthFrame.png?fileID=21300000&amp;guid=e04807cd45105ec409b00463fe6ab7b1&amp;type=3#UIHealthFrame&quot;); width: 380px; height: 186px; -unity-background-scale-mode: scale-to-fit;">
         <ui:VisualElement name="HealthBarContainer" style="flex-grow: 1; position: absolute; height: 59px; width: 209px; top: 59px; left: 157px;">
             <ui:VisualElement name="HealthBar" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Art/Ruby/UI/UIHealthBar.png?fileID=21300000&amp;guid=be3322f3a1dbc6e44b25b63f3bb91e16&amp;type=3#UIHealthBar&quot;);"/>
@@ -9,4 +10,5 @@
     </ui:VisualElement>
     <ui:Instance template="NPCDialogue" name="NPCDialogue" style="position: absolute; top: 70%; right: 10%; left: 10%; bottom: 0%;"/>
     <ui:Instance template="EndScreen" name="EndScreen" style="position: absolute; right: 0; top: 0; left: 0; bottom: 0;"/>
+    <ui:Instance template="RobotCounter" name="RobotCounter" style="-unity-background-scale-mode: scale-to-fit; position: absolute; top: 0%; left: 1746px; right: 0%; bottom: 981px;"/>
 </ui:UXML>

@@ -28,6 +28,14 @@ public class PlayerController : MonoBehaviour
     public InputAction TalkAction;
     private NonPlayerCharacter lastNonPlayerCharacter;
 
+    //audio
+    AudioSource audioSource;
+    public AudioClip hitSound;
+    public AudioClip launchSound;
+    public AudioClip enemyFixSound;
+
+
+
     public void ChangeHealth(int amount)
     {
         if (amount < 0)
@@ -39,6 +47,7 @@ public class PlayerController : MonoBehaviour
             isInvincible = true;
             damageCooldown = timeInvincible;
             animator.SetTrigger("Hit");
+            PlaySound(hitSound);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
@@ -49,6 +58,7 @@ public class PlayerController : MonoBehaviour
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(moveDirection, 500);
         animator.SetTrigger("Launch");
+        PlaySound(launchSound);
     }
     public int health { get { return currentHealth; } }
 
@@ -63,6 +73,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         TalkAction.Enable();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -74,6 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection.Set(move.x, move.y);
             moveDirection.Normalize();
+            
         }
 
         animator.SetFloat("Look X", moveDirection.x);
@@ -122,5 +134,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
+    public void PlayEnemyFixSound()
+    {
+        PlaySound(enemyFixSound);
+    }
 }
+

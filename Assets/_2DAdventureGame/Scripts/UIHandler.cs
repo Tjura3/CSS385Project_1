@@ -8,20 +8,24 @@ public class UIHandler : MonoBehaviour
     public float displayTime = 4.0f;
     private VisualElement m_NonPlayerDialogue;
     private float m_TimerDisplay;
+    UIDocument uiDocument;
 
     private VisualElement m_Healthbar;
 
     private VisualElement m_WinScreen;
     private VisualElement m_LoseScreen;
+    private Label m_RobotCounter;
 
     private void Awake()
     {
         instance = this;
+        uiDocument = GetComponent<UIDocument>();
+        m_RobotCounter = uiDocument.rootVisualElement.Q<Label>("CounterLabel");
     }
 
     void Start()
     {
-        UIDocument uiDocument = GetComponent<UIDocument>();
+        
         m_Healthbar = uiDocument.rootVisualElement.Q<VisualElement>("HealthBar");
         SetHealthValue(1.0f);
 
@@ -31,6 +35,7 @@ public class UIHandler : MonoBehaviour
 
         m_LoseScreen = uiDocument.rootVisualElement.Q<VisualElement>("LoseScreenContainer");
         m_WinScreen = uiDocument.rootVisualElement.Q<VisualElement>("WinScreenContainer");
+        m_RobotCounter = uiDocument.rootVisualElement.Q<Label>("CounterLabel");
     }
 
     public void SetHealthValue(float percentage)
@@ -64,5 +69,9 @@ public class UIHandler : MonoBehaviour
     public void DisplayLoseScreen()
     {
         m_LoseScreen.style.opacity = 1.0f;
+    }
+    public void SetCounter(int current, int enemies)
+    {
+        m_RobotCounter.text = $"{current} / {enemies}";
     }
 }
